@@ -89,6 +89,7 @@ In order to store the bad words said in the video you must create some metadata.
 6. Add two new fields:
    * BAD_WORD (CHARACTER)
    * START_TIME (CHARACTER)
+7. Click on **Save** button
       
 ![New tabular metadata table](images/0000-new-tabular-metadata-table.png)
 
@@ -105,8 +106,26 @@ Tabular Fields
 5. Add two new fields:
    * CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.BAD_WORD
    * CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.START.TIME
+6. Click on **Save** button
       
-![New tabular metadata table](images/0010-new-tabular-field.png)
+![New tabular Field](images/0010-new-tabular-field.png)
+
+## Create a Field Group: CUSTOM.CATEGORY.MEDIA ANALYSIS VIDEO.PROFANITY		
+
+1. Browse to **Metadata > Metadata editor** at the top menu
+2. Click on **Field Groups** at the left menu
+3. Click on **New Field Group** button
+4. Create a new tabular Field group called: **CUSTOM.CATEGORY.MEDIA ANALYSIS VIDEO.PROFANITY**
+   * **Id**:	CUSTOM.CATEGORY.MEDIA ANALYSIS VIDEO.PROFANITY
+   * **Name**:	Profanity
+5. Click on **Available Tabular Fields** tab
+6. Search **Profanity** field
+7. Select **Profanity** field 
+8. Click on **Add selected** button   
+9. Click on **Save** button
+
+![New Field Group](images/0020-new-field-group.png)
+
 
 # Required .jar files
 
