@@ -49,6 +49,8 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 
 		Job job = JobHelper.retrieveJob(event.getObjectId());
 		List<AssetIdentifier> assetIds =job.getAssetIds();
+		
+		log.debug(assetIds);
 
 		if(assetIds != null && assetIds.size() > 0) {
 			AssetIdentifier assetId = assetIds.get(0);
@@ -88,6 +90,10 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 				}   
 			}
 		}
+		else {
+			log.debug("Assets list was EMPTY!!!");
+		}
+		
 		return handled;
 	}
 
