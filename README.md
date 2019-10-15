@@ -43,7 +43,7 @@ Follow these steps:
 <!-- Custom added by Joaquín -->
 			
 		
-<logger name="ccom.opentext.otmm.sc.evenlistener">
+<logger name="com.opentext.otmm.sc.evenlistener">
 	<level name="DEBUG"/>
 	<appender-ref ref="console" />
 	<appender-ref ref="file" />
