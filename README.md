@@ -165,6 +165,12 @@ Follow these steps:
 
 ![Update mm.EVENT_CTXTS table](images/0040-update-EVENT_CTXTS-table.png)
 
+``` 
+UPDATE [mm].[EVENT_CTXTS]
+   SET [IS_ENABLED_EXTERNAL] = 'Y'
+   WHERE EVENT_ID IN ('5006', '2229145', '2229148')
+GO
+```
 
 # Required .jar files
 
