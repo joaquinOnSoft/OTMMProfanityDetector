@@ -126,6 +126,17 @@ Tabular Fields
 
 ![New Field Group](images/0020-new-field-group.png)
 
+## Edit Model: Time Based Asset Properties (CUSTOM.MODEL.STOCK VIDEO)		
+
+1. Browse to **Metadata > Metadata editor** at the top menu
+2. Click on **Models** at the left menu
+3. Click on **Edit** link close to **Time Based Asset Properties (CUSTOM.MODEL.STOCK VIDEO)**
+4. Search **Profanity** field 
+5. Select **Profanity** field 
+6. Click on **Add selected** button  
+7. Click on **Save** button
+
+![Edit Model](images/0030-edit-model.png)
 
 # Required .jar files
 
