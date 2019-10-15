@@ -25,6 +25,9 @@ public abstract class AbstractEventLister implements EventListener{
 		log.debug("== Event Init == ");
 		log.debug("Event ID : " + theEvent.getEventId().getId());
 		log.debug("user ID : " + theEvent.getUserId().getId());
+		log.debug("Object ID : " + theEvent.getObjectId());
+		log.debug("Object Name : " + theEvent.getObjectName());		
+		log.debug("Object Type : " + theEvent.getObjectType());
 		log.debug("Event Description : " + theEvent.getDescription());
 		log.debug("Event XMLContent : " + theEvent.getXmlContent());
 		log.debug("== Event End ==");

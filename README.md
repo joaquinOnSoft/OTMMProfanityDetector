@@ -23,13 +23,14 @@ If some bad words are found, It are stored in this custom fields:
 <listener>
 	<listener-class>com.opentext.otmm.sc.evenlistener.AnalysisDataFromAzureIsDeletedEventListenerRegistration</listener-class>
 </listener>
+<!-- 
 <listener>
 	<listener-class>com.opentext.otmm.sc.evenlistener.AssetCreatedEventListenerRegistration</listener-class>
 </listener>
 <listener>
 	<listener-class>com.opentext.otmm.sc.evenlistener.ImportJobEndedEventListenerRegistration</listener-class>
 </listener>
-
+-->
 ```
  
 2.	Open **web.xml** file located at **C:\Apps\MediaManagement\ear\artesia\otmmux\WEB-INF**
@@ -168,7 +169,7 @@ Follow these steps:
 ``` 
 UPDATE [mm].[EVENT_CTXTS]
    SET [IS_ENABLED_EXTERNAL] = 'Y'
-   WHERE EVENT_ID IN ('5006', '2229145', '2229148')
+   WHERE EVENT_ID = '5006'
 GO
 ```
 

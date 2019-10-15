@@ -32,8 +32,6 @@ import com.artesia.metadata.MetadataCollection;
 import com.artesia.metadata.MetadataTableField;
 import com.artesia.security.SecuritySession;
 import com.opentext.job.Job;
-import com.opentext.job.JobCriteria;
-import com.opentext.job.services.JobServices;
 import com.opentext.otmm.sc.evenlistener.OTMMField;
 import com.opentext.otmm.sc.evenlistener.helper.JobHelper;
 import com.opentext.otmm.sc.evenlistener.helper.SecurityHelper;
