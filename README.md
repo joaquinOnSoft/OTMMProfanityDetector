@@ -18,12 +18,14 @@ If some bad words are found, It are stored in this custom fields:
 ## Register event listener
 1.	Copy this paragraph:
 ``` 
+
 <!-- Custom event listener (Profanity detection) -->
 <listener>
 	<listener-class>com.opentext.otmm.sc.evenlistener.AnalysisDataFromAzureIsDeletedEventListenerRegistration</listener-class>
 </listener>
 
-``` 
+```
+ 
 2.	Open **web.xml** file located at **C:\Apps\MediaManagement\ear\artesia\otmmux\WEB-INF**
 3.	Paste the paragraph under the **web-app** label
 
@@ -75,6 +77,14 @@ Follow these steps:
 
 # Media Management Administration
 
+In order to store the bad words said in the video you must create some metadata.
+
+## Create a Tabular Metadata table: PROFANITY_VIDEO_TAB
+1. Access to TEAMS (<OTMM_SERVER>/teams)
+2. Browse to **Metadata > Custom table editor**
+3. Click on **Tabular Metadata tables**
+4. Click on **New Tabular Metadata table** button
+5. Create a new table called: **PROFANITY_VIDEO_TAB**
 ![New tabular metadata table](images/0000-new-tabular-metadata-table.png)
 
 # Required .jar files
