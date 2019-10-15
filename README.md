@@ -148,6 +148,18 @@ Once we have created all the metadata you must deploy your changes in your OTMM 
 2. Click on **Validate** button at the bottom of the screen 
 3. Click on **Apply** button at the bottom of the screen
 
+# SQL Server Management Studio
+
+Follow these steps:
+1.	Open SQL Server Management Studio
+2.	Browse to OTMM-BASE (SQL Server - sa) > Databases > MM > Tables
+3.	Select table mm.EVENT_CTXTS
+4.	Edit row with EVENT_ID = 5006 which corresponds with ‘Analysis data from Azure is deleted’ event
+5.	Set IS_ENABLED_EXTERNAL = 'Y'
+
+![Update mm.EVENT_CTXTS table](images/0040-update-EVENT_CTXTS-table.png)
+
+
 # Required .jar files
 
 > This section is only included to know the original location of the .jar files used in the project.
