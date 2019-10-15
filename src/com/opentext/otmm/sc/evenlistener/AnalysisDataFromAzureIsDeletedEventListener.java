@@ -39,8 +39,9 @@ public class AnalysisDataFromAzureIsDeletedEventListener extends AbstractEventLi
 		displayEventObject(event);
 		
 		if (event.getEventId().equals(new TeamsIdentifier(OTMMEvent.ANALYSIS_DATA_FROM_AZURE_IS_DELETED))) {
-			log.info("Ids match for Reveiw Job Task completed event. Event ID: " + event.getObjectId());
-
+			log.info("Ids match for Reveiw Job Task completed event.");
+			log.debug("[Event Object] Id: " + event.getObjectId() + " Name: " + event.getObjectName() + " Type: "+ event.getObjectType());
+			
 			OTMMEventHandler handler = new ProfanityDetectionOnAnalysisDataFromAzureIsDeleted();
 			handler.handle(event);
 		}
