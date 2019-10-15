@@ -138,6 +138,16 @@ Tabular Fields
 
 ![Edit Model](images/0030-edit-model.png)
 
+> NOTE: You can add the Field Group to all the Models that require this information
+
+## Validate and apply changes		
+
+Once we have created all the metadata you must deploy your changes in your OTMM instance.
+
+1. Browse to **Metadata > Metadata editor** at the top menu
+2. Click on **Validate** button at the bottom of the screen 
+3. Click on **Apply** button at the bottom of the screen
+
 # Required .jar files
 
 > This section is only included to know the original location of the .jar files used in the project.
