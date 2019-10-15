@@ -80,12 +80,29 @@ Follow these steps:
 In order to store the bad words said in the video you must create some metadata.
 
 ## Create a Tabular Metadata table: PROFANITY_VIDEO_TAB
+
 1. Access to TEAMS (<OTMM_SERVER>/teams)
-2. Browse to **Metadata > Custom table editor**
-3. Click on **Tabular Metadata tables**
+2. Browse to **Metadata > Custom table editor** at the top menu
+3. Click on **Tabular Metadata tables** at the left menu
 4. Click on **New Tabular Metadata table** button
 5. Create a new table called: **PROFANITY_VIDEO_TAB**
+6. Add two new fields:
+   * BAD_WORD (CHARACTER)
+   * START_TIME (CHARACTER)
+      
 ![New tabular metadata table](images/0000-new-tabular-metadata-table.png)
+
+## Create a Tabular Field: CUSTOM.TABLE.MEDIA ANALYSIS.PROFANITY	
+
+1. Browse to **Metadata > Metadata editor** at the top menu
+2. Click on **Tabular Fields** at the left menu
+3. Click on **New Tabular Field** button
+4. Create a new tabular field called: **CUSTOM.TABLE.MEDIA ANALYSIS.PROFANITY**
+5. Add two new fields:
+   * CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.BAD_WORD
+   * CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.START.TIME
+      
+![New tabular metadata table](images/0010-new-tabular-field.png)
 
 # Required .jar files
 
