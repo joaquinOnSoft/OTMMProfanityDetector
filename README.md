@@ -98,6 +98,10 @@ In order to store the bad words said in the video you must create some metadata.
 2. Click on **Tabular Fields** at the left menu
 3. Click on **New Tabular Field** button
 4. Create a new tabular field called: **CUSTOM.TABLE.MEDIA ANALYSIS.PROFANITY**
+   * **Id**:	CUSTOM.TABLE.MEDIA ANALYSIS.PROFANITY
+   * **Name**:	Profanity
+   * **Database Table**: PROFANITY_VIDEO_TAB
+Tabular Fields
 5. Add two new fields:
    * CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.BAD_WORD
    * CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.START.TIME
