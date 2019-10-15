@@ -20,16 +20,17 @@ package com.opentext.otmm.sc.evenlistener;
 
 import com.artesia.entity.TeamsIdentifier;
 import com.artesia.event.Event;
+import com.artesia.event.EventListener;
 import com.opentext.otmm.sc.evenlistener.handler.OTMMEventHandler;
 import com.opentext.otmm.sc.evenlistener.handler.ProfanityDetectionOnAnalysisDataFromAzureIsDeleted;
 
-public class AnalysisDataFromAzureIsDeletedEventListener extends AbstractEventLister {
+public class ImportJobEndedEventListener extends AbstractEventLister implements EventListener {
 
-	public AnalysisDataFromAzureIsDeletedEventListener() {
+	public ImportJobEndedEventListener() {
 		super();
 	}
 
-	public AnalysisDataFromAzureIsDeletedEventListener(String events) {
+	public ImportJobEndedEventListener(String events) {
 		super(events);		
 	}
 
@@ -38,7 +39,7 @@ public class AnalysisDataFromAzureIsDeletedEventListener extends AbstractEventLi
 	public void onEvent(Event event) {
 		displayEventObject(event);
 		
-		if (event.getEventId().equals(new TeamsIdentifier(OTMMEvent.ANALYSIS_DATA_FROM_AZURE_IS_DELETED))) {
+		if (event.getEventId().equals(new TeamsIdentifier(OTMMEvent.IMPORT_JOB_ENDED))) {
 			log.info("Ids match for Reveiw Job Task completed event. Event ID: " + event.getObjectId());
 
 			OTMMEventHandler handler = new ProfanityDetectionOnAnalysisDataFromAzureIsDeleted();

@@ -24,29 +24,30 @@ import com.artesia.common.exception.BaseTeamsException;
 import com.artesia.event.services.EventServices;
 import com.artesia.security.SecuritySession;
 
-public class AnalysisDataFromAzureIsDeletedEventListenerRegistration extends AbstractEventListenerRegistration {
+public class ImportJobEndedEventListenerRegistration extends AbstractEventListenerRegistration {
 
-	public AnalysisDataFromAzureIsDeletedEventListenerRegistration() {
+	public ImportJobEndedEventListenerRegistration() {
 		super();
-		clientId = "Analysis-Data-From-Azure-Is-Deleted";
+		clientId = "Import-Job-Ended";
 	}
-		
+	
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		clientId = "Analysis-Data-From-Azure-Is-Deleted";
-		
-		log.info(">>> " + getClassName() + " >> contextInitialized() Start >>>");
+		clientId = "Import-Job-Ended";
 
+		log.info(">>> " + getClassName() + " >> contextInitialized() Start >>>");
+		
 		try {		
 			SecuritySession session = com.opentext.otmm.sc.evenlistener.util.EventListenerUtils.getLocalSession(USER_ALIAS_TSUPER);
 			AnalysisDataFromAzureIsDeletedEventListener ybsEventListener = new AnalysisDataFromAzureIsDeletedEventListener(OTMMEvent.ANALYSIS_DATA_FROM_AZURE_IS_DELETED);
 			EventServices.getInstance().addEventListener(clientId, ybsEventListener, session);
-			
+		
 		} catch (BaseTeamsException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("Error destroying context: ", e);
 		}		
 		
 		log.info("<<< " + getClassName() + " >> contextInitialized() End <<<");				
 	}
+
 }

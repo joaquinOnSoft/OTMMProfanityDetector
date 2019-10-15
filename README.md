@@ -23,6 +23,12 @@ If some bad words are found, It are stored in this custom fields:
 <listener>
 	<listener-class>com.opentext.otmm.sc.evenlistener.AnalysisDataFromAzureIsDeletedEventListenerRegistration</listener-class>
 </listener>
+<listener>
+	<listener-class>com.opentext.otmm.sc.evenlistener.AssetCreatedEventListenerRegistration</listener-class>
+</listener>
+<listener>
+	<listener-class>com.opentext.otmm.sc.evenlistener.ImportJobEndedEventListenerRegistration</listener-class>
+</listener>
 
 ```
  
