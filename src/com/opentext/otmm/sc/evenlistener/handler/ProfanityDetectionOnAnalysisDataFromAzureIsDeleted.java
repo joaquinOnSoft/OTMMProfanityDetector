@@ -34,7 +34,6 @@ import com.artesia.metadata.MetadataTableField;
 import com.artesia.metadata.MetadataValue;
 import com.artesia.security.SecuritySession;
 import com.opentext.job.Job;
-import com.opentext.mediamanager.asset.bulk.MetadataHandler;
 import com.opentext.otmm.sc.evenlistener.OTMMField;
 import com.opentext.otmm.sc.evenlistener.helper.JobHelper;
 import com.opentext.otmm.sc.evenlistener.helper.MetadataHelper;
