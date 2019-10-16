@@ -81,9 +81,10 @@ public class ProfanityDetector {
 		// ignore any character that is not a letter
 		modifiedInput = modifiedInput.toLowerCase().replaceAll("[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]", "");
 
+		log.debug("Modified input: " + modifiedInput);
+		
 		List<String> badWordsFound = new ArrayList<String>();
 
-		
 		boolean ignore = false;
 		int size = 0;
 		// iterate over each letter in the word
@@ -92,6 +93,9 @@ public class ProfanityDetector {
 			// the sentence is reached, or the max word length is reached.
 			for (int offset = 1; offset < (modifiedInput.length() + 1 - start) && offset < largestWordLength; offset++) {
 				String wordToCheck = modifiedInput.substring(start, start + offset);
+				
+				log.debug("Word to check: " + wordToCheck);
+				
 				if (allBadWords.containsKey(wordToCheck)) {
 					Swearword swearwod = allBadWords.get(wordToCheck);
 					ignore = false;

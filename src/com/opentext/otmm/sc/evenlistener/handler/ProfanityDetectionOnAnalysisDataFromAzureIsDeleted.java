@@ -18,8 +18,6 @@
  */
 package com.opentext.otmm.sc.evenlistener.handler;
 
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -81,15 +79,12 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 					if (rows > 0) {
 						ProfanityDetector detector = ProfanityDetector.getInstance();
 						List<String> badWords = null;
-						ByteBuffer byteBuffer = null;
 						String txt = null;
 						String time = null;
 						
 						for (int i = 0; i < rows; i++)
 						{					
-							//Avoid problems with 'ñ' character
-							byteBuffer = StandardCharsets.UTF_8.encode(textField.getValueAt(i).getStringValue());
-							txt = byteBuffer.toString();
+							txt = textField.getValueAt(i).getStringValue();
 							time = startTimeField.getValueAt(i).getStringValue();
 							
 							log.debug("[" + time +"][" + i + "] TXT: " + txt);
