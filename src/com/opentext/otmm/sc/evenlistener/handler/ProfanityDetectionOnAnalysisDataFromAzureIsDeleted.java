@@ -71,8 +71,8 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 
 						for (int i = 0; i < rows; i++)
 						{					
-							log.debug("[" + i + "] TXT: " + textField.getValueAt(i).getIntValue());
-							log.debug("[" + i + "] START TIME: " + startTimeField.getValueAt(i).getIntValue());	
+							log.debug("[" + i + "] TXT: " + textField.getValueAt(i).getStringValue());
+							log.debug("[" + i + "] START TIME: " + startTimeField.getValueAt(i).getStringValue());	
 						}
 
 						//The event has been properly handled.
