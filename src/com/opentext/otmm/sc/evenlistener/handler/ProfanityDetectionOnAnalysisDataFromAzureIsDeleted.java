@@ -77,21 +77,26 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 				MetadataTableField textField = (MetadataTableField) assetMetadata.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT);
 				MetadataTableField startTimeField = (MetadataTableField) assetMetadata.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME);
 
-				int rows = textField.getRowCount();
+				if(textField != null) {
+					int rows = textField.getRowCount();
 
-				log.info(rows + " transcriptions found");
+					log.info(rows + " transcriptions found");
 
-				if (rows > 0) {
+					if (rows > 0) {
 
-					for (int i = 0; i < rows; i++)
-					{					
-						log.debug("[" + i + "] TXT: " + textField.getValueAt(i).getIntValue());
-						log.debug("[" + i + "] START TIME: " + startTimeField.getValueAt(i).getIntValue());	
+						for (int i = 0; i < rows; i++)
+						{					
+							log.debug("[" + i + "] TXT: " + textField.getValueAt(i).getIntValue());
+							log.debug("[" + i + "] START TIME: " + startTimeField.getValueAt(i).getIntValue());	
+						}
+
+						//The event has been properly handled.
+						handled = true;
 					}
-
-					//The event has been properly handled.
-					handled = true;
-				}   
+					else {
+						log.debug(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT + " metadata NOT FOUNd!!!");
+					}
+				}
 			}
 			else {
 				log.debug("Assets metadata NOT FOUNd!!!");

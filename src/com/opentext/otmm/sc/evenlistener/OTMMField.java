@@ -35,48 +35,48 @@ package com.opentext.otmm.sc.evenlistener;
 public interface OTMMField {
 
 	/**
-	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.ID
-	 * <strong>Name:</strong> SpeechText Id
-	 * <strong>Database table column:</strong> ID
-	 * <strong>Data Type:</strong> INTEGER
-	 * <strong>Data Length:</strong> 40
+	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.ID <br/>
+	 * <strong>Name:</strong> SpeechText Id <br/>
+	 * <strong>Database table column:</strong> ID <br/>
+	 * <strong>Data Type:</strong> INTEGER <br/>
+	 * <strong>Data Length:</strong> 40 <br/>
 	 */
 	public static final String MEDIA_ANALYSIS_VIDEO_SPEECH_ID = "ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.ID";
 
 	/**
-	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.TEXT
-	 * <strong>Name:</strong> Speech Text
-	 * <strong>Database table column:</strong> TEXT
-	 * <strong>Data Type:</strong> CHAR
-	 * <strong>Data Length:</strong> 1000
+	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.TEXT <br/>
+	 * <strong>Name:</strong> Speech Text <br/>
+	 * <strong>Database table column:</strong> TEXT <br/>
+	 * <strong>Data Type:</strong> CHAR <br/>
+	 * <strong>Data Length:</strong> 1000 <br/>
 	 */			
 	public static final String MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT = "ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.TEXT";
 
 	/**
-	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.END TIME
-	 * <strong>Name:</strong> Speech End Time 
-	 * <strong>Database table column:</strong> END_TIME 
-	 * <strong>Data Type:</strong>CHAR 
-	 * <strong>Data Length:</strong> 40
+	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.END TIME <br/>
+	 * <strong>Name:</strong> Speech End Time <br/>
+	 * <strong>Database table column:</strong> END_TIME <br/>
+	 * <strong>Data Type:</strong>CHAR <br/>
+	 * <strong>Data Length:</strong> 40 <br/>
 	 */
 	public static final String MEDIA_ANALYSIS_VIDEO_SPEECH_END_TIME = "ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.END TIME";
 
 	/**
-	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.START TIME
-	 * <strong>Name:</strong> Speech Start Time
-	 * <strong>Database table column:</strong>START_TIME
-	 * <strong>Data Type:</strong>CHAR
-	 * <strong>Data Length:</strong> 40
+	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.START TIME <br/>
+	 * <strong>Name:</strong> Speech Start Time <br/>
+	 * <strong>Database table column:</strong>START_TIME <br/>
+	 * <strong>Data Type:</strong>CHAR <br/>
+	 * <strong>Data Length:</strong> 40 <br/>
 	 **/
 	public static final String MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME = "ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.START TIME";
 
 
 	/**
-	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.TEXTTYPE
-	 * <strong>Name:</strong> Speech Type
-	 * <strong>Database table column:</strong>TEXTTYPE
-	 * <strong>Data Type:</strong>CHAR
-	 * <strong>Data Length:</strong> 40
+	 * <strong>Id:</strong> ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.TEXTTYPE <br/>
+	 * <strong>Name:</strong> Speech Type <br/>
+	 * <strong>Database table column:</strong>TEXTTYPE <br/>
+	 * <strong>Data Type:</strong>CHAR <br/>
+	 * <strong>Data Length:</strong> 40 <br/>
 	 */
 	public static final String MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT_TYPE = "ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.TEXTTYPE";
 	
