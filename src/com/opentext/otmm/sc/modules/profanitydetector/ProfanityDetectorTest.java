@@ -16,6 +16,12 @@ class ProfanityDetectorTest {
 		List<String> words = detector.findSwearwords("Hola, buenos días.");
 		assertNull(words);
 				
+		
+		words = detector.findSwearwords("Señor, sí, señor, qué coño no");
+		assertNotNull(words);
+		assertEquals(1, words.size());
+		assertEquals("coño", words.get(0));
+		
 		words = detector.findSwearwords("Eres un hijo de puta. Pedazo de cabrón");
 		assertNotNull(words);
 		assertEquals(3, words.size());
