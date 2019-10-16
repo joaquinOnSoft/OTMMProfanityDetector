@@ -9,7 +9,7 @@ Once the Analysis data from Azure is deleted the transcription is available (onl
 This add-on search for bad words in the video transcription, stored on **ARTESIA.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.TEXT** field.
 If some bad words are found, It are stored in this custom fields: 
 
- * **CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.BAD.WORD**
+ * **CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.BAD_WORD**
  * **CUSTOM.FIELD.MEDIAANALYSIS.VIDEO.SPEECH.PROFANITY.START.TIME**
 
 > NOTE: These custom field must be created from TEAMS admin panel.

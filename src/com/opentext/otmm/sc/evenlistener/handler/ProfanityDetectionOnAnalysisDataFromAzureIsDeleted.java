@@ -55,27 +55,12 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 		if(assetIds != null && assetIds.size() > 0) {
 			AssetIdentifier assetId = assetIds.get(0);
 			
-			log.debug("Asset Id: " + assetId.getId());
+			MetadataCollection assetMetadataCol = retrieveMetadataForAsset(assetId);
 
-			// Retrieve tabular metadata fields for the asset
-			TeamsIdentifier[] fieldIds = new TeamsIdentifier[] {
-					new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT),
-					new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME)};
-
-			SecuritySession session = SecurityHelper.getAdminSession();
-
-			MetadataCollection assetMetadata = null;
-			try {
-				assetMetadata = AssetMetadataServices.getInstance().retrieveMetadataForAsset(assetId, fieldIds, session);
-			} catch (BaseTeamsException e) {
-				log.error("Error retrieving metadata", e);
-			}
-
-			log.debug("Asset Metadata: " + assetMetadata);
-
-			if(assetMetadata != null) {
-				MetadataTableField textField = (MetadataTableField) assetMetadata.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT);
-				MetadataTableField startTimeField = (MetadataTableField) assetMetadata.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME);
+			if(assetMetadataCol != null) {
+				log.debug("Asset Metadata (size): " + assetMetadataCol.size());
+				MetadataTableField textField = (MetadataTableField) assetMetadataCol.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT);
+				MetadataTableField startTimeField = (MetadataTableField) assetMetadataCol.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME);
 
 				if(textField != null) {
 					int rows = textField.getRowCount();
@@ -107,6 +92,26 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 		}
 		
 		return handled;
+	}
+
+	private MetadataCollection retrieveMetadataForAsset(AssetIdentifier assetId) {
+		log.debug("Asset Id: " + assetId.getId());
+
+		// Retrieve tabular metadata fields for the asset
+		TeamsIdentifier[] fieldIds = new TeamsIdentifier[] {
+				new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT),
+				new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME)};
+
+		SecuritySession session = SecurityHelper.getAdminSession();
+
+		MetadataCollection assetMetadataCol = null;
+		try {
+			assetMetadataCol = AssetMetadataServices.getInstance().retrieveMetadataForAsset(assetId, fieldIds, session);
+		} catch (BaseTeamsException e) {
+			log.error("Error retrieving metadata", e);
+		}
+		
+		return assetMetadataCol;
 	}
 
 }
