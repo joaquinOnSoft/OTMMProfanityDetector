@@ -60,6 +60,7 @@ public class ProfanityDetector {
 		
 		return instance;
 	}
+	
 	/**
 	 * Iterates over a String input and checks whether any cuss word was found - and for any/all cuss word found, 
 	 * as long as the cuss word should not be ignored (i.e. check for false positives - e.g. even though "bass" 
@@ -109,7 +110,7 @@ public class ProfanityDetector {
 			}
 		}
 
-		return badWordsFound;
+		return badWordsFound.size() > 0 ? badWordsFound :  null;
 	}
 	
 

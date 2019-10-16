@@ -11,8 +11,12 @@ class ProfanityDetectorTest {
 	@Test
 	void testFindSwearwords() {
 		ProfanityDetector detector = ProfanityDetector.getInstance();
+
 		
-		List<String> words = detector.findSwearwords("Eres un hijo de puta. Pedazo de cabrón");
+		List<String> words = detector.findSwearwords("Hola, buenos días.");
+		assertNull(words);
+				
+		words = detector.findSwearwords("Eres un hijo de puta. Pedazo de cabrón");
 		assertNotNull(words);
 		assertEquals(3, words.size());
 		assertEquals("hijo de puta", words.get(0));

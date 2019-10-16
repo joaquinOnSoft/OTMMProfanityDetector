@@ -50,6 +50,28 @@ public class MetadataHelper {
 		return collection;
 	}
 
+	public static void saveMetadataForAsset(AssetIdentifier assetId, MetadataField[] metadataFields) {
+		SecuritySession session = SecurityHelper.getAdminSession();
+		
+		try
+		{
+
+			// save the metadata
+			AssetMetadataServices.getInstance().saveMetadataForAssets(assetId.asAssetIdArray(), metadataFields, session);
+		} 
+		catch (BaseTeamsException e) {
+			log.error("Error saving metadata", e);
+		}
+	}		
+
+	public static void lockAsset(AssetIdentifier assetIds) {
+		try {
+			AssetServices.getInstance().lockAsset(assetIds, SecurityHelper.getAdminSession());
+		} catch (BaseTeamsException e) {
+			log.error(e.getMessage(), e);
+		}
+	}	
+	
 	public static void lockAssets(List<AssetIdentifier> assetIds) {
 		try {
 			AssetServices.getInstance().lockAssets(
@@ -70,6 +92,14 @@ public class MetadataHelper {
 		}
 	}
 
+	public static void unlockAsset(AssetIdentifier assetId) {
+		try {
+			AssetServices.getInstance().unlockAsset(assetId, SecurityHelper.getAdminSession());
+		} catch (BaseTeamsException e) {
+			log.error(e.getMessage(), e);
+		}
+	}	
+	
 	public static void saveMetadata(List<AssetIdentifier> assetIds, MetadataField field) {
 		try {
 			AssetMetadataServices.getInstance().saveMetadataForAssets(
