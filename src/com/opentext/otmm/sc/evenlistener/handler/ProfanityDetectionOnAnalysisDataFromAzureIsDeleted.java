@@ -54,6 +54,8 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 
 		if(assetIds != null && assetIds.size() > 0) {
 			AssetIdentifier assetId = assetIds.get(0);
+			
+			log.debug("Asset Id: " + assetId.getId());
 
 			// Retrieve tabular metadata fields for the asset
 			TeamsIdentifier[] fieldIds = new TeamsIdentifier[] {
@@ -68,6 +70,8 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 			} catch (BaseTeamsException e) {
 				log.error("Error retrieving metadata", e);
 			}
+
+			log.debug("Asset Metadata: " + assetMetadata);
 
 			if(assetMetadata != null) {
 				MetadataTableField textField = (MetadataTableField) assetMetadata.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT);
@@ -88,6 +92,9 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 					//The event has been properly handled.
 					handled = true;
 				}   
+			}
+			else {
+				log.debug("Assets metadata NOT FOUNd!!!");
 			}
 		}
 		else {
