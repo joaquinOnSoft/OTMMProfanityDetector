@@ -25,11 +25,14 @@ import org.apache.commons.logging.LogFactory;
 
 import com.artesia.asset.AssetIdentifier;
 import com.artesia.asset.metadata.services.AssetMetadataServices;
+import com.artesia.asset.services.AssetServices;
 import com.artesia.common.exception.BaseTeamsException;
 import com.artesia.entity.TeamsIdentifier;
 import com.artesia.event.Event;
 import com.artesia.metadata.MetadataCollection;
+import com.artesia.metadata.MetadataField;
 import com.artesia.metadata.MetadataTableField;
+import com.artesia.metadata.MetadataValue;
 import com.artesia.security.SecuritySession;
 import com.opentext.job.Job;
 import com.opentext.otmm.sc.evenlistener.OTMMField;
@@ -49,18 +52,20 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 
 		Job job = JobHelper.retrieveJob(event.getObjectId());
 		List<AssetIdentifier> assetIds =job.getAssetIds();
-		
+
 		log.debug(assetIds);
 
 		if(assetIds != null && assetIds.size() > 0) {
 			AssetIdentifier assetId = assetIds.get(0);
-			
+
 			MetadataCollection assetMetadataCol = retrieveMetadataForAsset(assetId);
 
 			if(assetMetadataCol != null) {
 				log.debug("Asset Metadata (size): " + assetMetadataCol.size());
 				MetadataTableField textField = (MetadataTableField) assetMetadataCol.findElementById(new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT));
 				MetadataTableField startTimeField = (MetadataTableField) assetMetadataCol.findElementById(new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME));
+				MetadataTableField customBadWordField = (MetadataTableField) assetMetadataCol.findElementById(new TeamsIdentifier(OTMMField.CUSTOM_MEDIA_ANALYSIS_VIDEO_SPEECH_PROFANITY_BAD_WORD));
+				MetadataTableField customStartTimeField = (MetadataTableField) assetMetadataCol.findElementById(new TeamsIdentifier(OTMMField.CUSTOM_MEDIA_ANALYSIS_VIDEO_SPEECH_PROFANITY_START_TIME));
 
 				if(textField != null) {
 					int rows = textField.getRowCount();
@@ -73,8 +78,14 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 						{					
 							log.debug("[" + i + "] TXT: " + textField.getValueAt(i).getStringValue());
 							log.debug("[" + i + "] START TIME: " + startTimeField.getValueAt(i).getStringValue());	
+
+							customBadWordField.addValue(new MetadataValue(textField.getValueAt(i).getStringValue()));
+							customStartTimeField.addValue(new MetadataValue(startTimeField.getValueAt(i).getStringValue()));
 						}
 
+						MetadataField[] metadataFields = new MetadataField[] { customBadWordField, customStartTimeField };
+						saveMetadataForAsset(assetId, metadataFields);
+						
 						//The event has been properly handled.
 						handled = true;
 					}
@@ -90,7 +101,7 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 		else {
 			log.debug("Assets list was EMPTY!!!");
 		}
-		
+
 		return handled;
 	}
 
@@ -100,7 +111,9 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 		// Retrieve tabular metadata fields for the asset
 		TeamsIdentifier[] fieldIds = new TeamsIdentifier[] {
 				new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT),
-				new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME)};
+				new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME),
+				new TeamsIdentifier(OTMMField.CUSTOM_MEDIA_ANALYSIS_VIDEO_SPEECH_PROFANITY_BAD_WORD),
+				new TeamsIdentifier(OTMMField.CUSTOM_MEDIA_ANALYSIS_VIDEO_SPEECH_PROFANITY_START_TIME)};
 
 		SecuritySession session = SecurityHelper.getAdminSession();
 
@@ -110,8 +123,33 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 		} catch (BaseTeamsException e) {
 			log.error("Error retrieving metadata", e);
 		}
-		
+
 		return assetMetadataCol;
 	}
 
+	private void saveMetadataForAsset(AssetIdentifier assetId, MetadataField[] metadataFields) {
+		SecuritySession session = SecurityHelper.getAdminSession();
+		
+		try
+		{
+			// lock the asset before saving			
+			AssetServices.getInstance().lockAsset(assetId, session);
+
+			// save the metadata
+			AssetMetadataServices.getInstance().saveMetadataForAssets(assetId.asAssetIdArray(), metadataFields, session);
+		} 
+		catch (BaseTeamsException e) {
+			log.error("Error saving metadata", e);
+		}
+		finally
+		{
+			try {
+				// It's good practice to unlock the asset in a 
+				//finally block in case an error occurs
+				AssetServices.getInstance().unlockAsset(assetId, session);
+			} catch (BaseTeamsException e) {
+				log.error("Error unlocking asset", e);
+			}
+		}		
+	}		
 }
