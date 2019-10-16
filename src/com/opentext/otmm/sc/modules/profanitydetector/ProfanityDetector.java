@@ -51,6 +51,7 @@ public class ProfanityDetector {
 	
 	private ProfanityDetector() {
 		loadBadWords();
+		log.debug(allBadWords);
 	}
 	
 	public static ProfanityDetector getInstance() {
@@ -94,7 +95,7 @@ public class ProfanityDetector {
 			for (int offset = 1; offset < (modifiedInput.length() + 1 - start) && offset < largestWordLength; offset++) {
 				String wordToCheck = modifiedInput.substring(start, start + offset);
 				
-				log.debug("Word to check: " + wordToCheck);
+				log.debug("Word to check: " + wordToCheck + " " + toASCII(wordToCheck));
 				
 				if (allBadWords.containsKey(wordToCheck)) {
 					Swearword swearwod = allBadWords.get(wordToCheck);
@@ -169,4 +170,19 @@ public class ProfanityDetector {
 			log.error("Error loading bad words list", e);
 		}
 	} // end loadBadWords
+	
+	private String toASCII(String txt) {
+		StringBuilder str = new StringBuilder();
+		
+		if(txt != null) {
+			int size = txt.length();
+			for(int i=0; i<size; i++) {
+				str.append("[")
+					.append((int) txt.charAt(i))
+					.append("]");
+			}			
+		}
+		
+		return str.toString();
+	}
 }

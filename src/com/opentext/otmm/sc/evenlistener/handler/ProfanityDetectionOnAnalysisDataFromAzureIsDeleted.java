@@ -18,6 +18,8 @@
  */
 package com.opentext.otmm.sc.evenlistener.handler;
 
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
