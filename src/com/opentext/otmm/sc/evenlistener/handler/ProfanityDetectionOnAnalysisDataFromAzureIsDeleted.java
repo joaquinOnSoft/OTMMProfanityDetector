@@ -59,8 +59,8 @@ public class ProfanityDetectionOnAnalysisDataFromAzureIsDeleted implements OTMME
 
 			if(assetMetadataCol != null) {
 				log.debug("Asset Metadata (size): " + assetMetadataCol.size());
-				MetadataTableField textField = (MetadataTableField) assetMetadataCol.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT);
-				MetadataTableField startTimeField = (MetadataTableField) assetMetadataCol.findElementByName(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME);
+				MetadataTableField textField = (MetadataTableField) assetMetadataCol.findElementById(new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_TEXT));
+				MetadataTableField startTimeField = (MetadataTableField) assetMetadataCol.findElementById(new TeamsIdentifier(OTMMField.MEDIA_ANALYSIS_VIDEO_SPEECH_START_TIME));
 
 				if(textField != null) {
 					int rows = textField.getRowCount();
