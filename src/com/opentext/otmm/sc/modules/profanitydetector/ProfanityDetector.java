@@ -129,7 +129,7 @@ public class ProfanityDetector {
 			ClassLoader classLoader = getClass().getClassLoader();
 			InputStream input = classLoader.getResourceAsStream("bad-words-es.csv");
 			
-			reader = new BufferedReader(new InputStreamReader(input));
+			reader = new BufferedReader(new InputStreamReader(input, "UTF8"));
 			
 
 			String currentLine = "";
