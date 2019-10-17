@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -51,7 +52,8 @@ public class ProfanityDetector {
 	
 	private ProfanityDetector() {
 		loadBadWords();
-		log.debug(allBadWords);
+		
+		logAllBadWords();
 	}
 	
 	public static ProfanityDetector getInstance() {
@@ -184,5 +186,14 @@ public class ProfanityDetector {
 		}
 		
 		return str.toString();
+	}
+	
+	private void logAllBadWords() {
+		if(allBadWords != null) {
+			Set<String> keys = allBadWords.keySet();
+			for (String key: keys) {
+				log.debug(key + " - " + toASCII(key));
+			}
+		}
 	}
 }
