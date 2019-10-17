@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -51,9 +50,7 @@ public class ProfanityDetector {
 	private static ProfanityDetector instance = null;
 	
 	private ProfanityDetector() {
-		loadBadWords();
-		
-		logAllBadWords();
+		loadBadWords();				
 	}
 	
 	public static ProfanityDetector getInstance() {
@@ -95,9 +92,7 @@ public class ProfanityDetector {
 			// from each letter, keep going to find bad words until either the end of
 			// the sentence is reached, or the max word length is reached.
 			for (int offset = 1; offset < (modifiedInput.length() + 1 - start) && offset < largestWordLength; offset++) {
-				String wordToCheck = modifiedInput.substring(start, start + offset);
-				
-				log.debug("Word to check: " + wordToCheck + " " + toASCII(wordToCheck));
+				String wordToCheck = modifiedInput.substring(start, start + offset);				
 				
 				if (allBadWords.containsKey(wordToCheck)) {
 					Swearword swearwod = allBadWords.get(wordToCheck);
@@ -171,29 +166,5 @@ public class ProfanityDetector {
 		} catch (IOException e) {
 			log.error("Error loading bad words list", e);
 		}
-	} // end loadBadWords
-	
-	private String toASCII(String txt) {
-		StringBuilder str = new StringBuilder();
-		
-		if(txt != null) {
-			int size = txt.length();
-			for(int i=0; i<size; i++) {
-				str.append("[")
-					.append((int) txt.charAt(i))
-					.append("]");
-			}			
-		}
-		
-		return str.toString();
-	}
-	
-	private void logAllBadWords() {
-		if(allBadWords != null) {
-			Set<String> keys = allBadWords.keySet();
-			for (String key: keys) {
-				log.debug(key + " - " + toASCII(key));
-			}
-		}
-	}
+	} // end loadBadWords	
 }
