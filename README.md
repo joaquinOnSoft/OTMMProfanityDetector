@@ -34,45 +34,36 @@ If some bad words are found, It are stored in this custom fields:
 
 ## log4j.xml
 
-Log4j is a simple and flexible logging framework. The most common configuration options issuing  log4j.xml
+Log4j is a simple and flexible logging framework. The most common configuration options issuing  log4j2.xml
 
 Follow these steps:
 1.	Copy these text:
 ```xml 
 <!-- Custom added by Joaquín -->
 			
-		
-<logger name="com.opentext.otmm.sc.evenlistener">
-	<level name="DEBUG"/>
-	<appender-ref ref="console" />
-	<appender-ref ref="file" />
-</logger>
-			
-<logger name="com.opentext.otmm.sc.evenlistener.handler">
-	<level name="DEBUG"/>
-	<appender-ref ref="console" />
-	<appender-ref ref="file" />
-</logger>
-			
-<logger name="com.opentext.otmm.sc.evenlistener.helper">
-	<level name="DEBUG"/>
-	<appender-ref ref="console" />
-	<appender-ref ref="file" />
-</logger>
-			
-<logger name="com.opentext.otmm.sc.evenlistener.util">
-	<level name="DEBUG"/>
-	<appender-ref ref="console" />
-	<appender-ref ref="file" />
-</logger>
-			
-<logger name="com.opentext.otmm.sc.modules.profanitydetector">
-	<level name="DEBUG"/>
-	<appender-ref ref="console" />
-	<appender-ref ref="file" />
-</logger>
+<Logger name="com.opentext.otmm.sc.evenlistener" level="DEBUG" additivity="false">
+	<AppenderRef ref="CONSOLE"/>
+	<AppenderRef ref="FILE"/>
+</Logger>	
+<Logger name="com.opentext.otmm.sc.evenlistener.handler" level="DEBUG" additivity="false">
+	<AppenderRef ref="CONSOLE"/>
+	<AppenderRef ref="FILE"/>
+</Logger>	
+<Logger name="com.opentext.otmm.sc.evenlistener.helper" level="DEBUG" additivity="false">
+	<AppenderRef ref="CONSOLE"/>
+	<AppenderRef ref="FILE"/>
+</Logger>	
+<Logger name="com.opentext.otmm.sc.evenlistener.util" level="DEBUG" additivity="false">
+	<AppenderRef ref="CONSOLE"/>
+	<AppenderRef ref="FILE"/>
+</Logger>	
+<Logger name="com.opentext.otmm.sc.modules.profanitydetector" level="DEBUG" additivity="false">
+	<AppenderRef ref="CONSOLE"/>
+	<AppenderRef ref="FILE"/>
+</Logger>	
+
 ``` 
-2.	Paste the paragraph before the **&lt;/log4j:configuration&gt;** label into **C:\Apps\TomEE-OTMM\conf\log4j.xml**
+2.	Paste the paragraph after the **&lt;/Loggers&gt;** label into **C:\Apps\MediaManagement_TomEE\conf\log4j.xml**
 
 # Media Management Administration
 
