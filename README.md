@@ -173,6 +173,16 @@ UPDATE [mm].[EVENT_CTXTS]
 GO
 ```
 
+# Generate project .jar file (in Eclipse)
+1. Right click on Project folder
+2. Click on **Export**
+3. Select **JAR file**
+4. Click on **Next**
+5. Select only **src** folder at **Select the resource to export** list
+6. Check **Select class files an resource**
+7. Set **Select the export destination: JAR file**: **OTMM-condition-evaluation.jar**
+6. Click on **Finish**
+
 # Required .jar files
 
 > This section is only included to know the original location of the .jar files used in the project.
@@ -183,8 +193,8 @@ Import the indicated set of files to the indicated project folders:
 1. From: **C:\Apps\MediaManagement\jars**
  - artesia-server-tools.jar 
  - commons-httpclient-3.1.jar
- - commons-io-1.4.jar 
- - commons-logging-1.1.1.jar
+ - commons-io-2.6.jar 
+ - commons-logging-1.2.jar
  - TEAMS-common.jar
  - TEAMS-mock-services.jar
  - TEAMS-sdk.jar
@@ -193,15 +203,15 @@ Import the indicated set of files to the indicated project folders:
 2. To project folder: **lib**
 
 **Set 2**
-1. From: **C:\Apps\TomEE-OTMM\lib**
+1. From: **C:\Apps\MediaManagement_TomEE\lib**
  - servlet-api.jar
  
  2. To project folder: **lib**
 
 **Set 3**
 1. From: **C:\Apps\MediaManagement\deploy\commons**
- - commons-collections-2.1.1.jar 
- - commons-collections4-4.1.jar 
+ - commons-collections-3.2.2.jar 
+ - commons-collections4-4.3.jar 
  - commons-fileupload-1.3.3.jar 
  - commons-lang-2.4.jar 
 2. To project folder: **lib**
@@ -214,6 +224,10 @@ Import the indicated set of files to the indicated project folders:
 
 
 **Set 4**
-1. From: **C:\Apps\MediaManagement\ear\artesia.ear\**
+1. From: **C:\Apps\MediaManagement\ear\artesia\**
  - artesia-ejb.jar
 2. To project folder: **lib**
+
+# Versions
+1. Initial version, released on Augusth 2019 - Compatible with OTMM 16.5.2 
+2. Version 20.4, released on January 2021 - Compatible with OTMM 20.4 
