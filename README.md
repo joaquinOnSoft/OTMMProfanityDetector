@@ -63,7 +63,7 @@ Follow these steps:
 </Logger>	
 
 ``` 
-2.	Paste the paragraph after the **&lt;/Loggers&gt;** label into **C:\Apps\MediaManagement_TomEE\conf\log4j.xml**
+2.	Paste the paragraph after the **&lt;/Loggers&gt;** label into **C:\Apps\MediaManagement_TomEE\conf\log4j2.xml**
 
 # Media Management Administration
 
