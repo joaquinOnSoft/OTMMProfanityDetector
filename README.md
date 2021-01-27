@@ -17,7 +17,7 @@ If some bad words are found, It are stored in this custom fields:
 # Event handler registration
 ## Register event listener
 1.	Copy this paragraph:
-``` 
+```xml 
 
 <!-- Custom event listener (Profanity detection) -->
 <listener>
@@ -46,7 +46,7 @@ Log4j is a simple and flexible logging framework. The most common configuration 
 
 Follow these steps:
 1.	Copy these text:
-``` 
+```xml 
 <!-- Custom added by Joaquín -->
 			
 		
@@ -166,7 +166,7 @@ Follow these steps:
 
 ![Update mm.EVENT_CTXTS table](images/0040-update-EVENT_CTXTS-table.png)
 
-``` 
+```sql 
 UPDATE [mm].[EVENT_CTXTS]
    SET [IS_ENABLED_EXTERNAL] = 'Y'
    WHERE EVENT_ID = '5006'
