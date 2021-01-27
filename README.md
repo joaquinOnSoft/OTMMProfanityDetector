@@ -229,5 +229,5 @@ Import the indicated set of files to the indicated project folders:
 2. To project folder: **lib**
 
 # Versions
-1. Initial version, released on Augusth 2019 - Compatible with OTMM 16.5.2 
-2. Version 20.4, released on January 2021 - Compatible with OTMM 20.4 
+1. **Initial version**, released on August 2019 - Compatible with OTMM 16.5.2 
+2. **Version 20.4**, released on January 2021 - Compatible with OTMM 20.4 
